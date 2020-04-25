@@ -1,0 +1,4 @@
+com/devdojo/core/repository/CourseRepository.class
+com/devdojo/core/model/AbstractEntity.class
+com/devdojo/core/model/Course.class
+com/devdojo/core/model/Course$CourseBuilder.class

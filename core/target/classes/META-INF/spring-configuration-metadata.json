@@ -1,0 +1,33 @@
+{
+  "groups": [
+    {
+      "name": "jwt.config",
+      "type": "com.devdojo.core.property.JwtConfiguration",
+      "sourceType": "com.devdojo.core.property.JwtConfiguration"
+    },
+    {
+      "name": "jwt.config.header",
+      "type": "com.devdojo.core.property.JwtConfiguration$Header",
+      "sourceType": "com.devdojo.core.property.JwtConfiguration",
+      "sourceMethod": "public com.devdojo.core.property.JwtConfiguration.Header getHeader() "
+    }
+  ],
+  "properties": [
+    {
+      "name": "jwt.config.header.name",
+      "type": "java.lang.String",
+      "sourceType": "com.devdojo.core.property.JwtConfiguration$Header"
+    },
+    {
+      "name": "jwt.config.header.prefix",
+      "type": "java.lang.String",
+      "sourceType": "com.devdojo.core.property.JwtConfiguration$Header"
+    },
+    {
+      "name": "jwt.config.login-url",
+      "type": "java.lang.String",
+      "sourceType": "com.devdojo.core.property.JwtConfiguration"
+    }
+  ],
+  "hints": []
+}
