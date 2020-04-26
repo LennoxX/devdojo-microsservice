@@ -14,6 +14,11 @@
   ],
   "properties": [
     {
+      "name": "jwt.config.expiration",
+      "type": "java.lang.Integer",
+      "sourceType": "com.devdojo.core.property.JwtConfiguration"
+    },
+    {
       "name": "jwt.config.header.name",
       "type": "java.lang.String",
       "sourceType": "com.devdojo.core.property.JwtConfiguration$Header"
@@ -25,6 +30,16 @@
     },
     {
       "name": "jwt.config.login-url",
+      "type": "java.lang.String",
+      "sourceType": "com.devdojo.core.property.JwtConfiguration"
+    },
+    {
+      "name": "jwt.config.private-key",
+      "type": "java.lang.String",
+      "sourceType": "com.devdojo.core.property.JwtConfiguration"
+    },
+    {
+      "name": "jwt.config.type",
       "type": "java.lang.String",
       "sourceType": "com.devdojo.core.property.JwtConfiguration"
     }

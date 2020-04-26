@@ -1,43 +1,40 @@
 package com.devdojo.auth.security.config;
 
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.cors.CorsConfiguration;
 
 import com.devdojo.auth.security.filter.JwtUsernameAndPasswordAuthenticationFilter;
 import com.devdojo.core.property.JwtConfiguration;
+import com.devdojo.token.security.config.SecurityTokenConfig;
+import com.devdojo.token.security.creator.TokenCreator;
 
 import lombok.RequiredArgsConstructor;
 
 @EnableWebSecurity
 @RequiredArgsConstructor
-public class SecurityCredentialsConfig extends WebSecurityConfigurerAdapter {
+public class SecurityCredentialsConfig extends SecurityTokenConfig {
 
-	@Autowired
-	private JwtConfiguration jwtConfiguration;
+	public SecurityCredentialsConfig(JwtConfiguration jwtConfiguration) {
+		super(jwtConfiguration);
+		// TODO Auto-generated constructor stub
+	}
 
 	@Autowired
 	private UserDetailsService userDetailsService;
 
+	private final TokenCreator tokenCreator = new TokenCreator();
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues())
-				.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-				.exceptionHandling().authenticationEntryPoint((req, resp, e) -> {
-					resp.sendError(HttpServletResponse.SC_UNAUTHORIZED);
-				}).and().addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(),jwtConfiguration)).authorizeRequests()
-				.antMatchers(jwtConfiguration.getLoginUrl()).permitAll().antMatchers("/course/admin/**")
-				.hasRole("ADMIN").anyRequest().authenticated();
-	} 
+		http.addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(), jwtConfiguration,
+				tokenCreator));
+		super.configure(http);
+	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
