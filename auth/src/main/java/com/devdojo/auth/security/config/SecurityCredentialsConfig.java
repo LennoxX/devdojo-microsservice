@@ -7,11 +7,14 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.devdojo.auth.security.filter.JwtUsernameAndPasswordAuthenticationFilter;
 import com.devdojo.core.property.JwtConfiguration;
 import com.devdojo.token.security.config.SecurityTokenConfig;
+import com.devdojo.token.security.converter.TokenConverter;
 import com.devdojo.token.security.creator.TokenCreator;
+import com.devdojo.token.security.filter.JwtAuthorizationFilter;
 
 import lombok.RequiredArgsConstructor;
 
@@ -28,11 +31,14 @@ public class SecurityCredentialsConfig extends SecurityTokenConfig {
 	private UserDetailsService userDetailsService;
 
 	private final TokenCreator tokenCreator = new TokenCreator();
+	private TokenConverter tokenConverter = new TokenConverter();
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(), jwtConfiguration,
-				tokenCreator));
+		http.addFilter(
+				new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(), jwtConfiguration, tokenCreator))
+				.addFilterAfter(new JwtAuthorizationFilter(jwtConfiguration, tokenConverter),
+						UsernamePasswordAuthenticationFilter.class);
 		super.configure(http);
 	}
 

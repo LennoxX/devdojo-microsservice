@@ -24,6 +24,6 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
 				.exceptionHandling()
 				.authenticationEntryPoint((req, resp, e) -> resp.sendError(HttpServletResponse.SC_UNAUTHORIZED)).and()
 				.authorizeRequests().antMatchers(jwtConfiguration.getLoginUrl()).permitAll()
-				.antMatchers("/course/admin/**").hasRole("ADMIN").anyRequest().authenticated();
+				.antMatchers("/course/v1/admin/**").hasRole("ADMIN").anyRequest().authenticated();
 	}
 }
