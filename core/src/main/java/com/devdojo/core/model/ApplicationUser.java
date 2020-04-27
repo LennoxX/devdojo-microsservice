@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -15,7 +18,7 @@ import lombok.ToString;
 @Builder
 @ToString(exclude = "password")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-
+@JsonInclude(Include.NON_NULL)
 public class ApplicationUser {
 
 	public ApplicationUser() {
