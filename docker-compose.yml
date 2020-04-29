@@ -1,0 +1,26 @@
+version: '3.1'
+
+services: 
+    discovery: 
+        build: 
+            context: discovery/
+            dockerfile: Dockerfile
+        expose: ["8081"]
+    
+    gateway:
+        build: 
+            context: gateway/
+            dockerfile: Dockerfile
+        expose: ["8080"]
+
+    auth:
+        build: 
+            context: auth/
+            dockerfile: Dockerfile
+        expose: ["8083"]
+    
+    course:
+        build: 
+            context: course-microsservices/
+            dockerfile: Dockerfile
+        expose: ["8082"]

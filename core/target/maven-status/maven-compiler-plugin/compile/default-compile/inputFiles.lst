@@ -1,3 +1,7 @@
-/media/lucas/Dados/Projetos/Spring/devdojo-microservice/core/src/main/java/com/devdojo/core/model/AbstractEntity.java
-/media/lucas/Dados/Projetos/Spring/devdojo-microservice/core/src/main/java/com/devdojo/core/model/Course.java
-/media/lucas/Dados/Projetos/Spring/devdojo-microservice/core/src/main/java/com/devdojo/core/repository/CourseRepository.java
+/mnt/20BAC8BEBAC891A8/Projetos/Spring/devdojo-microservice/core/src/main/java/com/devdojo/core/repository/ApplicationUserRepository.java
+/mnt/20BAC8BEBAC891A8/Projetos/Spring/devdojo-microservice/core/src/main/java/com/devdojo/core/property/JwtConfiguration.java
+/mnt/20BAC8BEBAC891A8/Projetos/Spring/devdojo-microservice/core/src/main/java/com/devdojo/core/model/Course.java
+/mnt/20BAC8BEBAC891A8/Projetos/Spring/devdojo-microservice/core/src/main/java/com/devdojo/core/docs/BaseSwaggerConfig.java
+/mnt/20BAC8BEBAC891A8/Projetos/Spring/devdojo-microservice/core/src/main/java/com/devdojo/core/model/ApplicationUser.java
+/mnt/20BAC8BEBAC891A8/Projetos/Spring/devdojo-microservice/core/src/main/java/com/devdojo/core/repository/CourseRepository.java
+/mnt/20BAC8BEBAC891A8/Projetos/Spring/devdojo-microservice/core/src/main/java/com/devdojo/core/model/AbstractEntity.java

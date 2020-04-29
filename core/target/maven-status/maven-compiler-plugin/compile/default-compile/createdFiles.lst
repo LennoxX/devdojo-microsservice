@@ -1,4 +1,11 @@
+META-INF/spring-configuration-metadata.json
+com/devdojo/core/property/JwtConfiguration.class
 com/devdojo/core/repository/CourseRepository.class
+com/devdojo/core/repository/ApplicationUserRepository.class
+com/devdojo/core/model/ApplicationUser$ApplicationUserBuilder.class
+com/devdojo/core/model/ApplicationUser.class
 com/devdojo/core/model/AbstractEntity.class
+com/devdojo/core/property/JwtConfiguration$Header.class
 com/devdojo/core/model/Course.class
 com/devdojo/core/model/Course$CourseBuilder.class
+com/devdojo/core/docs/BaseSwaggerConfig.class

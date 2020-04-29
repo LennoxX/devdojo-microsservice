@@ -12,7 +12,7 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://localhost:8081/eureka
+      defaultZone: http://172.19.0.4:8081/eureka
     fetch-registry: true
     register-with-eureka: true
 

@@ -7,9 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -18,11 +15,20 @@ import lombok.ToString;
 @Builder
 @ToString(exclude = "password")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@JsonInclude(Include.NON_NULL)
 public class ApplicationUser {
 
 	public ApplicationUser() {
 
+	}
+
+	public ApplicationUser(Long id, @NotNull(message = "Campo 'username' Obrigatório") String username,
+			@NotNull(message = "Campo 'password' Obrigatório") String password,
+			@NotNull(message = "Campo 'role' Obrigatório") String role) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.role = role;
 	}
 
 	public ApplicationUser(ApplicationUser applicationUser) {
@@ -43,7 +49,6 @@ public class ApplicationUser {
 
 	@NotNull(message = "Campo 'password' Obrigatório")
 	@Column(nullable = false)
-	@ToString.Exclude
 	private String password;
 
 	@NotNull(message = "Campo 'role' Obrigatório")

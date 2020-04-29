@@ -12,7 +12,6 @@ import com.devdojo.token.security.filter.JwtAuthorizationFilter;
 import lombok.RequiredArgsConstructor;
 
 @EnableWebSecurity
-@RequiredArgsConstructor
 public class SecurityCredentialsConfig extends SecurityTokenConfig {
 
 	public SecurityCredentialsConfig(JwtConfiguration jwtConfiguration) {

@@ -6,7 +6,7 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://localhost:8081/eureka
+      defaultZone: http://172.19.0.4:8081/eureka
     register-with-eureka: true
 
 spring:
@@ -23,7 +23,7 @@ spring:
   jmx:
     enabled: false
   datasource:
-    url: jdbc:mysql://localhost:3306/devdojo?allowPublicKeyRetrieval=true&sslMode=DISABLED
+    url: jdbc:mysql://172.18.0.2:3306/devdojo?allowPublicKeyRetrieval=true&sslMode=DISABLED
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
