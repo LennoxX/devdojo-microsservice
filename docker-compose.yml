@@ -6,21 +6,40 @@ services:
             context: discovery/
             dockerfile: Dockerfile
         expose: ["8081"]
-    
+        environment: 
+            VIRTUAL_HOST: eureka.discovery.client
+                
     gateway:
         build: 
             context: gateway/
             dockerfile: Dockerfile
-        expose: ["8080"]
+        expose: ["8080"]        
+        depends_on: ["discovery"]
+        environment: 
+            VIRTUAL_HOST: api.service.gateway
+            VIRTUAL_PORT: 8080
+       
 
     auth:
         build: 
             context: auth/
             dockerfile: Dockerfile
-        expose: ["8083"]
+        expose: ["8083"]   
+        depends_on: ["gateway"]
+ 
     
     course:
         build: 
             context: course-microsservices/
             dockerfile: Dockerfile
-        expose: ["8082"]
+        expose: ["8082"]    
+        depends_on: ["gateway"]
+
+
+networks:
+    default:
+        external:
+          name: nginx-proxy
+        
+
+                                      

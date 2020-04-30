@@ -4,15 +4,13 @@ spring:
 
 server:
   port: 8080
-  servlet:
-    context-path: /gateway
-
+  
 eureka:
   instance: 
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://172.19.0.4:8081/eureka
+      defaultZone: http://172.21.0.3:8081/eureka/
     fetch-registry: true
     register-with-eureka: true
 
